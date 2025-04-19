@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💼 Fintech Product Catalog
 
-## Getting Started
+Una landing page moderna y responsiva para una fintech o banco digital, construida con **Next.js 13+ (App Router)**.  
+Permite visualizar productos financieros mockeados, filtrarlos por categoría, y ver sus detalles junto con una visualización gráfica de riesgo.
 
-First, run the development server:
+---
+
+## 🚀 Tecnologías utilizadas
+
+- **Next.js (App Router)**
+- **TypeScript**
+- **TailwindCSS** (estructura)
+- **Styled Components** (componentes visuales reutilizables)
+- **Recharts** (visualización de datos)
+- **Lucide React** (iconografía moderna)
+
+---
+
+## 🖥️ ¿Cómo correr el proyecto localmente?
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/aotalvaros/fintech-product-catalog.git
+cd fintech-product-catalog
+```
+
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+3. Ejecuta el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+``` 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧠 Decisiones técnicas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **¿Qué criterios seguí para diseñar la UI de productos financieros?**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    Se muestra solo la información más relevante en la card (nombre, tipo, categoría y nivel de riesgo). Los detalles más específicos se visualizan solo al hacer clic en “Saber más”.
 
-## Learn More
+    Uso de colores (azul, blanco, gris) que evocan estabilidad y seriedad, muy común en el sector financiero.
 
-To learn more about Next.js, take a look at the following resources:
+    Todo el layout está construido pensando primero en pantallas pequeñas y luego adaptado a desktop, gracias a las utilidades de TailwindCSS.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Animaciones suaves en los cards, hover con efecto visual, y un botón CTA claro.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **¿Cómo decidiste cuándo usar Tailwind y cuándo Styled Components?**
 
-## Deploy on Vercel
+    Usé Tailwind principalmente para:
+    - Su velocidad para crear interfaces sin salir del HTML
+    - Fáciles ajustes visuales sin necesidad de CSS adicional
+    - Estructura del layout (márgenes, paddings, grids, flexbox, etc.)
+    - Diseño responsivo rápido con clases como sm:grid-cols-2, p-4, etc.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **¿Qué harías para escalar este proyecto en una aplicación real de banca digital?**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Para llevar este prototipo a una app bancaria real, aplicaría varias estrategias de escalabilidad técnica y funcional
+
+    - Conexión con APIs reales
+    - Gestión de estado global
+    - Autenticación y seguridad
+    - DevOps, testing y despliegue
+
+## ✅ Pruebas unitarias
+
+Aunque la prueba técnica no solicitaba explícitamente pruebas unitarias, decidí implementarlas como valor agregado para garantizar la calidad del código y la robustez de los componentes.
+
+    Se utilizaron:
+
+- **Vitest** como test runner moderno y rápido.
+- **Testing Library** para pruebas enfocadas en la experiencia del usuario.
+- Mocking de componentes con lógica más compleja para mantener los tests aislado
+
+Para ejutar las pruebas en una terminal dentro del proyecto, con el comando **npm run test**
