@@ -5,14 +5,13 @@ import { generateRiskData } from "@/utils/generateRiskData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-interface Props {
-  readonly params: {
-    id: string;
-  };
-}
+export default async function ProductDetailPage(props: {
+  params: Promise<{ id: string }>;
+}) {
 
-export default async function ProductDetailPage({ params }: Props) {
-  const product: IProduct | undefined = products.find(p => p.id === params.id);
+  const {id} = await props.params;
+
+  const product: IProduct | undefined = products.find((p) => p.id === id);
   const riskData = generateRiskData(product?.id ?? "0");
 
   if (!product) notFound();

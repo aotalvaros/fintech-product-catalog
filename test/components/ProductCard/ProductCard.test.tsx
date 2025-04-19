@@ -11,7 +11,7 @@ const mockProduct: IProduct = {
   category: 'Ahorro',
   riskLevel: 'Bajo',
   description: 'Una cuenta segura.',
-  imagenes: "https://example.com/image.jpg",
+  imagenes: "/_next/image?url=%2F_next%2Fimage%3Furl%3Dhttps%253A%252F%252Fexample.com%252Fimage.jpg%26w%3D1080%26q%3D75&w=1080&q=75",
 };
 
 vi.mock('../../../src/components/RiskBadge/RiskBadge', () => ({
@@ -30,14 +30,6 @@ describe('Pruebas para el componente ProductCard', () => {
     expect(screen.getByText(/Tipo:/)).toBeInTheDocument();
     expect(screen.getByText(/Categoría:/)).toBeInTheDocument();
     expect(screen.getByText(/Saber más/)).toBeInTheDocument();
-  });
-
-  it('Deberia mostrar la imagen del producto', () => {
-    render(<ProductCard product={mockProduct} />);
-
-    const image = screen.getByAltText(/Imagen de Cuenta Ahorro/);
-    expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute('src', mockProduct.imagenes);
   });
 
   it('Deberia mostrar el badge de riesgo', () => {

@@ -1,6 +1,7 @@
 import { IProduct } from "@/types/product";
 import Link from "next/link";
 import RiskBadge from "../RiskBadge/RiskBadge";
+import Image from "next/image";
 
 interface Props {
   readonly product: IProduct;
@@ -11,8 +12,10 @@ export default function ProductCard({ product }: Props) {
     <div className="border border-[#d8d8d8] rounded-lg shadow-md transition duration-300 hover:shadow-xl flex flex-col justify-between h-full p-4 bg-white">
       <div>
         <div className="w-full h-40 mb-3 overflow-hidden rounded-md">
-          <img
+          <Image
             src={product.imagenes}
+            width={500}
+            height={500}
             alt={`Imagen de ${product.name}`}
             className="w-full h-full object-cover transition duration-300 hover:scale-105"
           />
